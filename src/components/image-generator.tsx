@@ -42,9 +42,7 @@ export function ImageGenerator({ setImageSelected, imageSelected, onImageGenerat
   });
 
 const processResponse = async (response: Response, message: string) => {
-      if (response.status === 429) {
-        throw new Error("Rate limit exceeded");
-      } else if (!response.ok) {
+      if (!response.ok) {
         throw new Error(await response.text());
       }
 

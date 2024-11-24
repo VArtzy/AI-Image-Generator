@@ -22,7 +22,7 @@ export function Gallery({setImageSelected, refreshGallery}: Props) {
   const fetchImages = async () => {
     try {
       const response = await fetch("/api/images");
-      if (!response.ok) throw new Error("Failed to fetch images");
+      if (!response.ok) throw new Error(await response.text());
       const data = await response.json();
       setImages(data);
     } catch (error) {
@@ -38,7 +38,7 @@ export function Gallery({setImageSelected, refreshGallery}: Props) {
       const response = await fetch(`/api/images/${id}`, {
         method: "DELETE",
       });
-      if (!response.ok) throw new Error("Failed to delete image");
+      if (!response.ok) throw new Error(await  response.text());
       setImages(images.filter((image) => image.id !== id));
       toast.success("Image deleted successfully");
       setOnDelete('');
