@@ -17,7 +17,7 @@ Full-blown NextJS 14 AI Image generator web app with OpenAI API (Dall-E) scaffol
 - File storage using Vercel Blob
 - Database operation with Prisma and SQLITE3
 - HTTP requests managed through Axios
-- Cache management with LRU Cache
+- Cache management & rate limiting with LRU Cache
 - Toast notifications via Sonner
 - ESLint and Prettier
 - Full testing setup with Jest and React Testing Library (TODO)
