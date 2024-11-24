@@ -1,6 +1,13 @@
 # AI-Image-Generator
 Full-blown NextJS 14 AI Image generator web app with OpenAI API (Dall-E) scaffold using bolt.new
 
+Fill .env first
+```
+npm i
+npx prisma migrate dev
+npm run dev
+```
+
 ## Feature
 - Input prompt text 
 - Generate & display AI image 
