@@ -1,7 +1,6 @@
 # AI-Image-Generator
 Full-blown NextJS 14 AI Image generator web app with OpenAI API (Dall-E) scaffold using bolt.new
-[2024-11-25 00-47-20.webm](https://github.com/user-attachments/assets/e8b44278-0722-49c5-8131-f0e36f29132d)
-
+[AI Image Generator Demo](https://github.com/VArtzy/HostImage/raw/refs/heads/main/2024-11-25%2000-47-20.mp4)
 
 Fill .env first
 ```
