@@ -34,7 +34,7 @@ npm run dev
 - Maintainable
 - User Experience
 - Performant
-- seperate Enviroment vs Production code
+- seperate Enviroment vs Production code (mocking!)
 - Best practices
 
 - Logging (TODO)

@@ -19,11 +19,13 @@ const limiter = rateLimit({
     interval: 60 * 1000,
     uniqueTokenPerInterval: 100,
 })
+
+const REQUEST_LIMIT = 2;
 const env = process.env.NODE_ENV;
 
 export async function POST(req: Request) {
   try {
-    await limiter.check(2, "CACHE_TOKEN");
+    await limiter.check(REQUEST_LIMIT, "CACHE_TOKEN");
 
     const body = await req.json();
     const { prompt } = schema.parse(body);
