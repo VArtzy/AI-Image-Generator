@@ -6,6 +6,9 @@ import { z } from "zod";
 import rateLimit from "@/app/middleware/rateLimiter";
 import handleError from "@/app/middleware/handleError";
 
+const REQUEST_LIMIT = 3;
+const env = process.env.NODE_ENV;
+
 const prisma = new PrismaClient();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -18,10 +21,7 @@ const schema = z.object({
 const limiter = rateLimit({
     interval: 60 * 1000,
     uniqueTokenPerInterval: 100,
-})
-
-const REQUEST_LIMIT = 2;
-const env = process.env.NODE_ENV;
+});
 
 export async function POST(req: Request) {
   try {

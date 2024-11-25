@@ -41,9 +41,10 @@ export function Gallery({setImageSelected, refreshGallery}: Props) {
       if (!response.ok) throw new Error(await  response.text());
       setImages(images.filter((image) => image.id !== id));
       toast.success("Image deleted successfully");
-      setOnDelete('');
     } catch (error) {
       toast.error("Failed to delete image");
+    } finally {
+        setOnDelete('');
     }
   };
 
