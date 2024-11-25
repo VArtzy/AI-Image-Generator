@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import { OpenAI } from "openai";
 import { put } from "@vercel/blob";
 import { PrismaClient } from "@prisma/client";
-import { z } from "zod";
 import rateLimit from "@/app/middleware/rateLimiter";
 import handleError from "@/app/middleware/handleError";
+import { PROMPT } from "@/validation/prompt";
 
 const REQUEST_LIMIT = 3;
 const env = process.env.NODE_ENV;
@@ -12,10 +12,6 @@ const env = process.env.NODE_ENV;
 const prisma = new PrismaClient();
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-});
-
-const schema = z.object({
-  prompt: z.string().min(1).max(1000),
 });
 
 const limiter = rateLimit({
@@ -28,7 +24,7 @@ export async function POST(req: Request) {
     await limiter.check(REQUEST_LIMIT, "CACHE_TOKEN");
 
     const body = await req.json();
-    const { prompt } = schema.parse(body);
+    const { prompt } = PROMPT.parse(body);
     let response;
 
     if (env === 'development') {

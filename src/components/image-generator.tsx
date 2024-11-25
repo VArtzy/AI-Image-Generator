@@ -7,6 +7,7 @@ import { z } from "zod";
 import { Wand2 } from "lucide-react";
 import { toast } from "sonner";
 import Image from "@/types/image";
+import { PROMPT } from "@/validation/prompt";
 
 interface Props {
     setImageSelected(image: null): void;
@@ -14,11 +15,7 @@ interface Props {
     onImageGenerated(): void;
 }
 
-const schema = z.object({
-  prompt: z.string().min(1, "Prompt is required").max(1000),
-});
-
-type FormData = z.infer<typeof schema>;
+type FormData = z.infer<typeof PROMPT>;
 
 export function ImageGenerator({ setImageSelected, imageSelected, onImageGenerated }: Props) {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -38,7 +35,7 @@ export function ImageGenerator({ setImageSelected, imageSelected, onImageGenerat
     formState: { errors },
   } = useForm<FormData>({
         values: { prompt: imageSelected?.prompt || "" },
-    resolver: zodResolver(schema),
+    resolver: zodResolver(PROMPT),
   });
 
 const processResponse = async (response: Response, message: string) => {
