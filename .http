@@ -1,0 +1,16 @@
+### Generate image and save to gallery
+POST http://localhost:3000/api/generate
+Content-Type: application/json
+Accept: application/json
+
+{
+    "prompt": "A cat with a hat"
+}
+
+### Get all images
+GET http://localhost:3000/api/images
+Accept: application/json
+
+### Delete image by id
+DELETE http://localhost:3000/api/images/1
+Accept: application/json

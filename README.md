@@ -41,6 +41,7 @@ npm run start
 - Maintainable
 - User Experience
 - Performant
+- Documented API Specs & Integration Test via .http file
 - seperate Enviroment vs Production code (mocking!)
 - Best practices
 
