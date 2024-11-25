@@ -9,6 +9,13 @@ npx prisma migrate dev
 npm run dev
 ```
 
+Alternatively, if you are ready using your consume openai token:
+
+```
+npm run build
+npm run start
+```
+
 ## Feature
 - Input prompt text 
 - Generate & display AI image 
