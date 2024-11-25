@@ -31,7 +31,7 @@ npm run start
 - Form handling with React Hook Form and Zod validation
 - File storage using Vercel Blob
 - Database operation with Prisma and SQLITE3
-- HTTP requests managed through Axios
+- HTTP requests managed through fetch
 - Cache management & rate limiting with LRU Cache
 - Toast notifications via Sonner
 - ESLint and Prettier
