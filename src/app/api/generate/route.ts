@@ -21,11 +21,11 @@ const limiter = rateLimit({
 
 export async function POST(req: Request) {
   try {
-    await limiter.check(REQUEST_LIMIT, "CACHE_TOKEN");
-
     const body = await req.json();
     const { prompt } = PROMPT.parse(body);
     let response;
+
+    await limiter.check(REQUEST_LIMIT, "CACHE_TOKEN");
 
     if (env === 'development') {
         response = { data: [{url: 'https://picsum.photos/1024'}] }
